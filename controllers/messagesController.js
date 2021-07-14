@@ -4,6 +4,7 @@ import Groupe from "../models/groupe.js";
 import {getGroupesIds} from "./groupeController.js";
 import Participe from "../models/participe.js";
 
+
 const {Op} = pkg;
 
 const getMessagesPrive = (req, res) => {

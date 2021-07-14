@@ -1,5 +1,9 @@
 import User from "../models/user.js";
 import Parente from "../models/parente.js";
+import moveFile from 'move-file';
+
+
+
 const updateUser =(req, res)=> {
     User.update({
         email: req.body.email,
@@ -72,4 +76,36 @@ const getEnfants= (req, res)=>{
             });
     });
 }
-export {updateUser, addEnfant, getParents, getEnfants};
+const updatePpd= (req, res)=>{
+
+    if (!req.file) {
+        return res.status(400).json({message:'No files were uploaded.'});
+    }
+    const pdp=req.file;
+    let extension= pdp.originalname.split(".");
+    extension= extension[extension.length-1];
+    const filename = parseInt(req.body.id)+"."+extension;
+    (async () => {
+        await moveFile(pdp.path, 'public/uploads/pdp/'+filename);
+        User.update({
+            pdp:'public/uploads/pdp/'+filename
+        }, {where: {id:req.body.id}})
+
+            .then((updt) => {
+                if(updt[0]===1){
+                    return res.status(200).json({message:'Upload réussi'});
+                }
+                else{
+                    return res.status(500).json({message:'Mise à jour raté'});
+                }
+            })
+            /*.catch(()=>{
+                return res.status(500).send('Mise à jour raté');
+            })*/
+    })();
+
+
+
+
+}
+export {updateUser, addEnfant, getParents, getEnfants, updatePpd};

@@ -78,7 +78,7 @@ const getParticipantsGroupe = (req, res) => {
         let index=[];
         data.forEach(el=>index.push(el.user));
         User.findAll({
-            attributes: ["id",'nom', "prenom", "email"],
+            attributes: ["id",'nom', "prenom", "email", "pdp"],
             where : { id: index}
         })
             .then((result) => {

@@ -1,4 +1,6 @@
 import express from 'express';
+import multer from 'multer';
+var upload = multer({ dest: './public/uploads/temp/' })
 
 import {signup, login, isAuth, getUserInfo} from '../controllers/auth.js';
 import {
@@ -17,7 +19,7 @@ import {
     getParticipantsGroupe,
     getGroupes
 } from "../controllers/groupeController.js";
-import {updateUser, addEnfant, getEnfants, getParents} from "../controllers/userController.js";
+import {updateUser, addEnfant, getEnfants, getParents, updatePpd} from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -55,6 +57,7 @@ router.post('/user/addEnfant', addEnfant);
 router.post('/user/addEnfant', addEnfant);
 router.get('/user/enfants', getEnfants);
 router.get('/user/parents', getParents);
+router.post('/user/pdp', upload.single('pdp'), updatePpd);
 
 
 export default router;

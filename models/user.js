@@ -31,6 +31,9 @@ const User = sequelize.define('users', {
       type: Sequelize.STRING,
       allowNull: false,
    },
+   pdp: {
+      type: Sequelize.STRING,
+   },
    tel:{
       type: Sequelize.STRING,
    },

@@ -3,7 +3,6 @@ import express from 'express';
 import sequelize from './utils/database.js';
 
 import router from './routes/routes.js';
-
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
