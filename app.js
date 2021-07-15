@@ -3,7 +3,12 @@ import express from 'express';
 import sequelize from './utils/database.js';
 
 import router from './routes/routes.js';
+
+import { createServer } from "http";
+import { Server } from "socket.io";
+
 const app = express();
+const httpServer = createServer(app);
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,4 +25,18 @@ app.use(router);
 
 sequelize.sync(); 
 
-app.listen(5000);
+
+const io = new Server(httpServer);
+
+io.on("connection", socket => {
+    console.log("a user connected :D");
+    socket.on("chat message", msg => {
+        console.log(msg);
+        io.emit("chat message", msg);
+    });
+});
+
+
+httpServer.listen(5000, ()=>{
+    console.log('*******************Ecoute sur le port 5000*******************' )
+});
