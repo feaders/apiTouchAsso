@@ -13,7 +13,8 @@ import {
     sendMessage,
     getMessageNonLu,
     setVueMessagesGroupe,
-    setVueMessagesUser
+    setVueMessagesUser,
+    getDiscussions
 } from "../controllers/messagesController.js";
 import {
     createGroupe,
@@ -46,6 +47,7 @@ router.get('/groupe/:groupe/message', getMessagesGroupe);
 router.get('/user/:id/message/nonlu', getMessageNonLu);
 router.patch('/message/vuGroupe', setVueMessagesGroupe);
 router.patch('/message/vuUser', setVueMessagesUser);
+router.get('/user/:id/discussions', getDiscussions);
 
 //groupe
 router.post('/groupe/create', createGroupe);

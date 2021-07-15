@@ -3,6 +3,7 @@ import pkg from 'sequelize';
 import Groupe from "../models/groupe.js";
 import {getGroupesIds} from "./groupeController.js";
 import Participe from "../models/participe.js";
+import User from "../models/user.js";
 
 
 const {Op} = pkg;
@@ -34,6 +35,29 @@ const getMessagesGroupe = (req, res) => {
         order: [['id', 'DESC']]
     }).then((data) => {
         res.json(data);
+    });
+};
+const getDiscussions = (req, res) => {
+
+    const id = req.params.id;
+
+    Message.findAll({
+        where: {typeDestinataire: "user", destinataire: id},
+        order: [['id', 'DESC']]
+    }).then((data) => {
+
+        let index=[]
+        data.forEach(el=>{
+            if(!index.includes(el.id))
+                index.push(el.id)
+        });
+        User.findAll({
+            where:{id:{[Op.in]:index}}
+        }).then((data) => {
+            res.json(data);
+        });
+
+
     });
 };
 const sendMessage = (req, res) => {
@@ -157,4 +181,4 @@ const setVueMessagesGroupe = (req, res) => {
 }
 
 
-export {getMessagesPrive, getMessagesGroupe, sendMessage, getMessageNonLu, setVueMessagesUser, setVueMessagesGroupe};
+export {getMessagesPrive, getMessagesGroupe, sendMessage, getMessageNonLu, setVueMessagesUser, setVueMessagesGroupe, getDiscussions};
