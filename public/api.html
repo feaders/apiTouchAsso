@@ -18,7 +18,7 @@
 
 <div class="container">
 
-    <h2 id="user">User</h2>
+    <h2 id="user" class="models">User</h2>
     <section class="accordion">
         <h5 class="header"><button type="button" class="btn btn-success">POST</button><b>/signup</b></h5>
         <div>
@@ -106,6 +106,40 @@
                 </div>
             </div>
         </div>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/private</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">is Auth</h4>
+                    <p class="card-text">Permet de verifier si le est token est valide </p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre"> {
+    "message": "authentifié",
+}</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "non authentifié"
+}</p>
+                </div>
+            </div>
+        </div>
         <h5 class="header"><button type="button" class="btn btn-success">POST</button><b>/user/addEnfant</b></h5>
         <div>
             <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
@@ -170,6 +204,49 @@
         "prenom": "f",
         "email": "f"
     }
+]</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[]</p>
+                </div>
+            </div>
+        </div>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/users</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">users</h4>
+                    <p class="card-text">Recupere les utilisateurs</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[
+    {
+        "id": 1,
+        "nom": "f",
+        "prenom": "f",
+        "email": "f"
+    },
+    {
+        "id": 2,
+        "nom": "w",
+        "prenom": "w",
+        "email": "w"
+    },
 ]</p>
                 </div>
             </div>
@@ -342,9 +419,47 @@ image : image uploader </p>
                 </div>
             </div>
         </div>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/user/{id}/convs</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">get convs</h4>
+                    <p class="card-text">Récupere les converstions de l'utilisateur</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[
+    {
+        "id": 1,[...]
+        "updatedAt": "2021-07-14T08:16:26.000Z"
+    },
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T08:16:26.000Z"
+    }
+]</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[]</p>
+                </div>
+            </div>
+        </div>
 
     </section>
-    <h2 id="groupe">Groupe</h2>
+    <h2 id="groupe" class="models">Groupe</h2>
     <section class="accordion">
         <h5 class="header"><button type="button" class="btn btn-success">POST</button><b>/groupe/create</b></h5>
         <div>
@@ -380,6 +495,44 @@ image : image uploader </p>
                     <h4 class="card-title">Retour</h4>
                     <p class="card-text pre">{
     "message": "erreur lors de la création du groupe"
+}</p>
+                </div>
+            </div>
+        </div>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/groupe/{id}</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">groupe</h4>
+                    <p class="card-text">Récupere le groupe</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "id": 1,
+    "nom": "g1",
+    "description": null,
+    "createdAt": "2021-07-14T08:16:26.000Z",
+    "updatedAt": "2021-07-14T08:16:26.000Z"
+}</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "groupe non trouvé"
 }</p>
                 </div>
             </div>
@@ -543,17 +696,254 @@ image : image uploader </p>
             </div>
         </div>
     </section>
-    <h2 id="message">Message</h2>
+    <h2 id="message" class="models">Message</h2>
     <section class="accordion">
-        <h6>Nouvel utilisateur</h6>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/user/{id}/message/nonlu</b></h5>
         <div>
-            fdsfs
-        </div>
-        <h6>Nouvel utilisateur</h6>
-        <div>
-            fdsfs
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">get messages non lu</h4>
+                    <p class="card-text">Récupere les messages non lu</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
 
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T18:05:12.000Z"
+    },
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T18:05:12.000Z"
+    }
+]</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+                        "message": "groupe non trouvé"
+                        }</p>
+                </div>
+            </div>
         </div>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/user/{id}/message/{id2}</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">get messages privé</h4>
+                    <p class="card-text">Récupere les messages avec un utilisateur</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T18:05:12.000Z"
+    },
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T18:05:12.000Z"
+    }
+]</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+                        "message": "groupe non trouvé"
+                        }</p>
+                </div>
+            </div>
+        </div>
+        <h5 class="header"><button type="button" class="btn btn-success">POST</button><b>/message/vuGroupe</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">set vu groupe</h4>
+                    <p class="card-text">Marque comme vu les messages du groupe</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+                    <h4 class="card-title">Exemple</h4>
+                    <p class="card-text pre">{
+    "id":1,
+    "idGroupe":1
+}</p>
+
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "vu effectué"
+}</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "aucun nouveau message"
+}</p>
+                </div>
+            </div>
+        </div>
+        <h5 class="header"><button type="button" class="btn btn-success">POST</button><b>/message/vuUser</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">set vu user</h4>
+                    <p class="card-text">Marque comme vu les messages avec un utilisteur</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+                    <h4 class="card-title">Exemple</h4>
+                    <p class="card-text pre">{
+    "idEmetteur":1,
+    "idDestinataire":2,
+}</p>
+
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "vu effectué"
+}</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "aucun nouveau message"
+}</p>
+                </div>
+            </div>
+        </div>
+        <h5 class="header"><button type="button" class="btn btn-success">POST</button><b>/message/send</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">send message</h4>
+                    <p class="card-text">Envoie un message à un utilisateur ou un groupe</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+                    <h4 class="card-title">Exemple</h4>
+                    <p class="card-text pre">{
+    "idEmetteur":1,
+    "idDestinataire":2,
+    "typeDestinataire":"user",
+    "texte":"text message"
+}</p>
+
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+                        "message": "message envoyé"
+                        }</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "erreur lors de l'envoie"
+ }</p>
+                </div>
+            </div>
+        </div>
+        <h5 class="header"><button type="button" class="btn btn-primary">GET</button><b>/user/{id}/convs</b></h5>
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">description</div>
+                <div class="card-body">
+                    <h4 class="card-title">get convs</h4>
+                    <p class="card-text">récupere les conversations active</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">parametres</div>
+                <div class="card-body">
+
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">succés</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">[
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T18:05:12.000Z"
+    },
+    {
+        "id": 2,[...]
+        "updatedAt": "2021-07-14T18:05:12.000Z"
+    }
+]</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">erreur</div>
+                <div class="card-body">
+                    <h4 class="card-title">Retour</h4>
+                    <p class="card-text pre">{
+    "message": "erreur"
+ }</p>
+                </div>
+            </div>
+        </div>
+
     </section>
 
 </div>
@@ -573,19 +963,29 @@ image : image uploader </p>
     .header>b{
         margin-left: 15px;
     }
+    .accordion>h5{
+        cursor: pointer;
+    }
     .accordion>div{
         display: flex;
         flex-wrap: nowrap;
         flex-basis: fit-content;
         max-height: 450px;
+
     }
     .accordion>div>*{
         margin: 5px;
         height: auto;
+        cursor: pointer;
+
     }
     .pre{
         white-space: pre-wrap;
         color: yellow;
+    }
+    .models{
+        border-bottom: 1px gray solid;
+        cursor: pointer;
     }
 
 </style>

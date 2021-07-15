@@ -36,8 +36,9 @@ router.get('/public', (req, res, next) => {
 //auth
 router.post('/login', login);
 router.post('/signup', signup);
+
 router.get('/private', isAuth);
-router.get('/me', getUserInfo);
+
 
 
 //messages
@@ -47,13 +48,13 @@ router.get('/groupe/:groupe/message', getMessagesGroupe);
 router.get('/user/:id/message/nonlu', getMessageNonLu);
 router.patch('/message/vuGroupe', setVueMessagesGroupe);
 router.patch('/message/vuUser', setVueMessagesUser);
-router.get('/user/:id/discussions', getDiscussions);
+router.get('/user/:id/convs', getDiscussions);
 
 //groupe
 router.post('/groupe/create', createGroupe);
 router.post('/groupe/add', addToGroupe);
 router.delete('/groupe/remove', removeFromGroupe);
-router.get('/groupe', getGroupeInfo);
+router.get('/groupe/:id', getGroupeInfo);
 router.get('/groupe/:groupe/participants', getParticipantsGroupe);
 
 //user
@@ -64,6 +65,7 @@ router.post('/user/addEnfant', addEnfant);
 router.get('/user/:parent/enfants', getEnfants);
 router.get('/user/:enfant/parents', getParents);
 router.post('/user/pdp', upload.single('pdp'), updatePpd);
+router.get('/users', getUserInfo);
 
 
 router.get('/', function (req, res){

@@ -17,7 +17,7 @@ const createGroupe = (req, res) => {
         });
 }
 const getGroupeInfo = (req, res) => {
-    Groupe.findOne()
+    Groupe.findOne({where:{id:req.params.id}})
         .then(gp => {
             if (gp) {
                 res.status(200).json({message: gp});

@@ -42,6 +42,7 @@ const getDiscussions = (req, res) => {
     const id = req.params.id;
 
     Message.findAll({
+
         where: {typeDestinataire: "user", destinataire: id},
         order: [['id', 'DESC']]
     }).then((data) => {
@@ -52,6 +53,7 @@ const getDiscussions = (req, res) => {
                 index.push(el.id)
         });
         User.findAll({
+            attributes: ["id",'nom', "prenom", "email", "pdp"],
             where:{id:{[Op.in]:index}}
         }).then((data) => {
             res.json(data);
