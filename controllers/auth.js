@@ -36,7 +36,8 @@ const signup = (req, res, next) => {
                             adresse: req.body.adresse,
                             cp: req.body.cp,
                             ville: req.body.ville,
-                            tel:req.body.tel
+                            tel:req.body.tel,
+                            pdp:""
 
                         }))
                             .then(() => {
