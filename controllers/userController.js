@@ -44,7 +44,7 @@ const getParents= (req, res)=>{
 
     Parente.findAll({
         where: {
-            enfant: req.body.enfant,
+            enfant: req.params.enfant,
         }
     }).then((data) => {
         let index=[];
@@ -62,7 +62,7 @@ const getEnfants= (req, res)=>{
 
     Parente.findAll({
         where: {
-            parent: req.body.parent,
+            parent: req.params.parent,
         }
     }).then((data) => {
         let index=[];

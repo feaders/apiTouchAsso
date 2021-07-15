@@ -72,7 +72,7 @@ const getParticipantsGroupe = (req, res) => {
 
     Participe.findAll({
         where: {
-                groupe: req.body.groupe,
+                groupe: req.params.groupe,
         }
     }).then((data) => {
         let index=[];
@@ -91,7 +91,7 @@ const getGroupes = (req, res) => {
 
     Participe.findAll({
         where: {
-            user: req.body.user,
+            user: req.params.user,
         }
     }).then((data) => {
         let index=[];

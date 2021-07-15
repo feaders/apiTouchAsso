@@ -9,8 +9,8 @@ const {Op} = pkg;
 
 const getMessagesPrive = (req, res) => {
 
-    const emetteur = req.body.idEmetteur;
-    const destinataire = req.body.idDestinataire;
+    const emetteur = req.params.id;
+    const destinataire = req.params.id2;
 
     Message.findAll({
         where: {
@@ -27,7 +27,7 @@ const getMessagesPrive = (req, res) => {
 };
 const getMessagesGroupe = (req, res) => {
 
-    const groupe = req.body.groupe;
+    const groupe = req.params.groupe;
 
     Message.findAll({
         where: {typeDestinataire: "groupe", destinataire: groupe},
@@ -54,7 +54,7 @@ const sendMessage = (req, res) => {
         });
 };
 const getMessageNonLu = (req, res) => {
-    const id = req.body.id;
+    const id = req.params.id;
 
 
     Participe.findAll({
@@ -76,7 +76,8 @@ const getMessageNonLu = (req, res) => {
                                 ]
                             },
                             typeDestinataire: "groupe",
-                            destinataire : {[Op.in]:index}
+                            destinataire : {[Op.in]:index},
+                            emetteur : {[Op.not]:id}
                         },
                         {
                             vues:  {
