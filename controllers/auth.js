@@ -37,7 +37,6 @@ const signup = (req, res, next) => {
                             cp: req.body.cp,
                             ville: req.body.ville,
                             tel:req.body.tel
-
                         }))
                             .then(() => {
                                 res.status(200).json({message: "utilisateur créé"});
@@ -112,6 +111,7 @@ const isAuth = (req, res, next) => {
     let decodedToken;
     try {
         decodedToken = jwt.verify(token, 'secret');
+        req.userData = decodedToken;
     } catch (err) {
         return res.status(500).json({message: err.message || " n'a pas pu décoder le jeton"});
     }
