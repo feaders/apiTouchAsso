@@ -2,7 +2,7 @@
 
 # Projet
 
-Api en node.js node.js, héberger et deployer sur Heroku : https://api-touch-assso.herokuapp.com/
+Api en node.js node.js, hébergé et deployé sur Heroku : https://api-touch-assso.herokuapp.com/
 
 
 ## Instalation
@@ -17,4 +17,4 @@ npm run start
 
 # Méthodes 
 
-liste de toutes le méthodes sur la route "/"
+Liste de toutes le méthodes sur la route "/"
